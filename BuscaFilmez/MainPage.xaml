@@ -1,0 +1,73 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="BuscaFilmez.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="BuscaFilmez" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="Buscar" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}">
+
+            </TextBlock>
+            <TextBox x:Name="txt_filme" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="446"/>
+
+            <Button Click="Button_Click" x:Name="Button" Content="Buscar Filme" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="446"/>
+            <TextBlock Text="Faça sua busca" Name="status" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+
+            </TextBlock>
+
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,100">
+
+
+
+            <ListBox ScrollViewer.ManipulationMode="Control" Name="lista_filmes" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding nome}" FontSize="22" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding ano}"/>
+                            <Image Width="80" Height="80" HorizontalAlignment="Left" Source="{Binding poster}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Name="btn_salvar" Click="btn_salvar_Click" Content="Salvar" HorizontalAlignment="Left" Height="68" Margin="10,336,0,-68" VerticalAlignment="Top" Width="212"/>
+            <Button Name="btn_meus_filmes" Click="btn_meus_filmes_Click" Content="Meus filmes" HorizontalAlignment="Left" Height="68" Margin="222,336,0,-68" VerticalAlignment="Top" Width="212"/>
+
+        </Grid>
+
+     
+
+
+
+        <!--Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+
+            Before shipping remove this XAML and the image itself.-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+    </Grid>
+
+</phone:PhoneApplicationPage>
