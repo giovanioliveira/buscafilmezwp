@@ -39,6 +39,14 @@ namespace BuscaFilmes.Classes
 
         }
 
+        public static void Delete(Filme filme)
+        {
+            Banco db = GetDataBase();
+            var query = from d in db.filmes where d.id == filme.id select d;
+            db.filmes.DeleteOnSubmit(query.ToList()[0]);
+            db.SubmitChanges();
+        }
+
         public static List<Filme> Get()
         {
             Banco db = GetDataBase();

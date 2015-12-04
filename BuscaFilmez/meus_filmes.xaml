@@ -28,17 +28,19 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox ScrollViewer.ManipulationMode="Control" Name="lista_filmes" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListBox ScrollViewer.ManipulationMode="Control" Name="lista_filmes" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="0,0,0,99">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding nome}" FontSize="22" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding nome}" FontSize="29" TextWrapping="Wrap"/>
                             <TextBlock Text="{Binding ano}"/>
-                            <Image Width="80" Height="80" HorizontalAlignment="Left" Source="{Binding poster}"/>
+                            <Image  HorizontalAlignment="Left" Source="{Binding poster}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <Button Name="btn_imdb" Click="btn_imdb_Click" Content="Ver no IMDB" HorizontalAlignment="Left" Height="74" Margin="0,523,0,0" VerticalAlignment="Top" Width="249"/>
+            <Button Name="btn_deletar" Click="btn_deletar_Click" Content="Deletar&#xD;&#xA;" HorizontalAlignment="Left" Height="74" Margin="254,523,-6,0" VerticalAlignment="Top" Width="208"/>
         </Grid>
     </Grid>
 
